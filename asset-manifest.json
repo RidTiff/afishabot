@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/afishabot/static/css/main.b6ca3cdc.css",
+    "main.js": "/afishabot/static/js/main.7774a4b1.js",
+    "static/media/pastel.jpg": "/afishabot/static/media/pastel.0befe5a9f3ef919b083d.jpg",
+    "static/media/shagal.jpg": "/afishabot/static/media/shagal.6fb696dc93f03738106f.jpg",
+    "static/media/dvor.jpg": "/afishabot/static/media/dvor.e876aad5a6aeb2493022.jpg",
+    "static/media/brod.jpg": "/afishabot/static/media/brod.be29c09046134eb3610a.jpg",
+    "index.html": "/afishabot/index.html",
+    "main.b6ca3cdc.css.map": "/afishabot/static/css/main.b6ca3cdc.css.map",
+    "main.7774a4b1.js.map": "/afishabot/static/js/main.7774a4b1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b6ca3cdc.css",
+    "static/js/main.7774a4b1.js"
+  ]
+}

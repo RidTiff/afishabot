@@ -1,9 +1,0 @@
-.card {
-    background-color: white;
-    border-radius: 5%;
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    font-size: 14px;
-}
