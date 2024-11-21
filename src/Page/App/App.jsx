@@ -47,6 +47,7 @@ class App extends React.Component {
   handlerCardClick(e) {
       this.setState( prevState => {
         this.selectedCard = prevState.dataOfEvent[e.target.parentElement.id]
+        console.log(e.target.parentElement.id)
         return{
           ...prevState,
           toggleCard: !prevState.toggleCard,
@@ -61,7 +62,7 @@ class App extends React.Component {
     <main className={"main" + (!this.state.toggleCard ? ' list': ' toggleCard')}>
       { !this.state.toggleCard ? this.state.dataOfEvent.map((item) => 
         (
-          <Card key={item.id} id={item.id - 1} img={brod} name={item.name} place={item.expo.name + '. Адрес - ' + item.expo.address} date={moment(item.begin).diff(moment(), 'days') > 0 ? 'Идёт с ' + item.begin + ', до ' + item.end : (moment(item.end).diff(moment(), 'days') > 0 ? 'Идёт сейчас, до ' + item.end : 'Сейчас уже закрылась :(')} src={item.src} onClick={this.handlerCardClick}/>
+          <Card key={item.id} id={this.state.dataOfEvent.indexOf(item)} img={brod} name={item.name} place={item.expo.name + '. Адрес - ' + item.expo.address} date={moment(item.begin).diff(moment(), 'days') > 0 ? 'Идёт с ' + item.begin + ', до ' + item.end : (moment(item.end).diff(moment(), 'days') > 0 ? 'Идёт сейчас, до ' + item.end : 'Сейчас уже закрылась :(')} src={item.src} onClick={this.handlerCardClick}/>
         )) : 
         <>
           <h3 className='name'>
