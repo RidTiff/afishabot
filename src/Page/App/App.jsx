@@ -47,7 +47,6 @@ class App extends React.Component {
   handlerCardClick(e) {
       this.setState( prevState => {
         this.selectedCard = prevState.dataOfEvent[e.target.parentElement.id]
-        console.log
         return{
           ...prevState,
           toggleCard: !prevState.toggleCard,
