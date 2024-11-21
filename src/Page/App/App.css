@@ -1,0 +1,51 @@
+.main {
+  margin: auto;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  width: 80%;
+}
+
+.list {
+  align-items: center;
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.toggleCard {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.img {
+  max-width: 100%;
+  align-self: center;
+  margin-bottom: 20px;
+}
+
+.name {
+  margin: 20px 0 20px;
+}
+
+.place {
+  margin-bottom: 20px;
+}
+
+.data {
+  margin-bottom: 20px;
+}
+
+.description {
+  margin-bottom: 20px;
+}
+
+.buttonBack {
+  background-color: #56a7f1;
+  align-self: center;
+  width: 80%;
+  border: 0;
+  border-radius: 5px;
+  font-size: 14px;
+  min-height: 30px
+}
