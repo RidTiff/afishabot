@@ -1,0 +1,20 @@
+@font-face {
+    src: url('./YsabeauOffice-Regular.woff2') format('truetype');
+    font-family: 'YsabeauOffice';
+    font-style: normal;
+    font-weight: normal;
+}
+  
+@font-face {
+    src: url('./YsabeauOffice-SemiBold.woff2') format('truetype');
+    font-family: 'YsabeauOffice';
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+  src: url('./YsabeauOffice-Italic.woff2') format('truetype');
+  font-family: 'YsabeauOffice';
+  font-weight: normal;
+  font-style: italic;
+}
