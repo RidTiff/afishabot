@@ -7,12 +7,12 @@ import InfoButton from './Button/Card__button.js'
 
 function Card(props) {
     return (
-    <section className='card' id={props.id}>
-        <ImageCard src={props.img}></ImageCard>
-        <EventName>{props.name}</EventName>
-        <Place>{props.place}</Place>
-        <Date>{props.date}</Date>
-        <InfoButton src={props.src} onClick={props.onClick}></InfoButton>
+    <section className={`card ${props.className}`} id={props.id}>
+        <ImageCard className={`${props.className}`} src={props.img}></ImageCard>
+        <EventName className={`${props.className}`}>{props.name}</EventName>
+        <Place className={`${props.className}`}>{props.place}</Place>
+        <Date className={`${props.className}`}>{props.date}</Date>
+        <InfoButton className={`${props.className}`} src={props.src} onClick={props.onClick}></InfoButton>
     </section>)
 }
 

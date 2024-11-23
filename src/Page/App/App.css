@@ -1,22 +1,36 @@
 @import url(../../fonts/fonts.css);
 
-.main {
-  margin: auto;
-  display: flex;
-  align-self: center;
-  justify-content: center;
-  font-family: 'YsabeauOffice';
+#root {
+  background-color: rgba(222, 222, 222, 0.729);
 }
 
-.list {
-  align-items: center;
-  margin-top: 40px;
+.main {
+  font-family: 'YsabeauOffice';
+  margin: auto;
+}
+
+.main.single {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   width: 80%;
+  margin-top: 50px;
+  padding-top: 20px;
+}
+
+.main.double {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 20px 16px 0;
+  margin-top: 40px;
+  gap: 10px;
 }
 
 .toggleCard {
+  display: flex;
+  align-self: center;
+  justify-content: center;
   margin: 0;
   box-sizing: border-box;
   width: 100%;
@@ -32,6 +46,7 @@
   padding: 0 20px 0;
   box-shadow: 0 0 5px #56a7f1;
   box-sizing: border-box;
+  margin: auto;
 }
 
 .img {
@@ -69,4 +84,35 @@
   font-family: inherit;
   font-style: italic;
   margin-bottom: 20px;
+}
+
+header {
+  position: fixed; /* Фиксируем хедер */
+  top: 0; /* Прикрепляем к верхней части */
+  left: 0;
+  width: 100%; /* Растягиваем на всю ширину */
+  background-color: white; /* Цвет фона (можно заменить) */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Тень для отделения от контента */
+  z-index: 1000; /* Устанавливаем высокий z-index, чтобы перекрывать другие элементы */
+  display: flex; /* Для размещения содержимого в строку */
+  justify-content: center; /* Центрируем содержимое */
+}
+
+.toggleViewButton {
+  background-color: #56a7f1;
+  width: 70%;
+  border: 0;
+  border-radius: 5px;
+  font-size: 14px;
+  min-height: 30px;
+  font-family: inherit;
+  font-style: italic;
+  cursor: pointer; /* Добавим интерактивный эффект */
+  text-align: center; /* Центрируем текст */
+  margin: 10px auto; /* Отступы сверху/снизу */
+  display: inline-block; /* Устанавливаем кнопку как блочный элемент */
+}
+
+.toggle-view-button:active {
+  background-color: #3c87c9; /* Тёмный оттенок при нажатии */
 }

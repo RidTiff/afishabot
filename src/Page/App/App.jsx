@@ -9,10 +9,12 @@ class App extends React.Component {
     super(props)
 
     this.handlerCardClick = this.handlerCardClick.bind(this)
+    this.toggleViewMode = this.toggleViewMode.bind(this);
 
     this.state = {
       toggleCard: false,
       selectedCard: undefined,
+      viewMode: 'single',
       dataOfEvent: [
         {
           id: 0,
@@ -52,13 +54,26 @@ class App extends React.Component {
       })
   }
 
+  toggleViewMode() {
+    this.setState((prevState) => ({
+      viewMode: prevState.viewMode === 'single' ? 'double' : 'single',
+    }));
+  }
 
   render() {
     return (
-    <main className={"main" + (!this.state.toggleCard ? ' list': ' toggleCard')}>
+    <>
+    <header>
+      {!this.state.toggleCard && (
+        <button className="toggleViewButton" onClick={this.toggleViewMode}>
+            {this.state.viewMode === 'single' ? 'Две колонки' : 'Одна колонка'}
+        </button>
+      )}
+    </header>
+    <main className={'main' + (!this.state.toggleCard ? ` ${this.state.viewMode}`: ' toggleCard') }>
       { !this.state.toggleCard ? this.state.dataOfEvent.map((item) => 
         (
-          <Card key={item.id} id={this.state.dataOfEvent.indexOf(item)} img={item.image} name={item.name} place={item.expo.name + '. Адрес - ' + item.expo.address} date={moment(item.begin).diff(moment(), 'days') > 0 ? 'Идёт с ' + item.begin + ', до ' + item.end : (moment(item.end).diff(moment(), 'days') > 0 ? 'Идёт сейчас, до ' + item.end : 'Сейчас уже закрылась :(')} src={item.src} onClick={this.handlerCardClick}/>
+          <Card className={`${this.state.viewMode}`} key={item.id} id={this.state.dataOfEvent.indexOf(item)} img={item.image} name={item.name} place={item.expo.name + ((this.state.viewMode === 'single') ? '. Адрес - ' + item.expo.address : '')} date={moment(item.begin).diff(moment(), 'days') > 0 ? 'Идёт с ' + item.begin + ', до ' + item.end : (moment(item.end).diff(moment(), 'days') > 0 ? 'Идёт сейчас, до ' + item.end : 'Сейчас уже закрылась :(')} src={item.src} onClick={this.handlerCardClick}/>
         )) : 
         <div className='container'>
           <h3 className='name'>
@@ -78,6 +93,7 @@ class App extends React.Component {
         </div>
       }
     </main>
+    </>
     );
   }
 }

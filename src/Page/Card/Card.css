@@ -1,11 +1,23 @@
 .card {
     background-color: white;
     border-radius: 5px;
+    box-shadow: 0 0 5px #56a7f1;
+    padding: 10px;
+}
+
+.card.single {
     width: 300px;
     display: flex;
     flex-direction: column;
-    padding: 10px;
     margin-bottom: 20px;
     font-size: 14px;
-    box-shadow: 0 0 5px #56a7f1;
+}
+
+.card.double {
+    min-height: 230px;
+    display: grid;
+    grid-template-columns: minmax(min-content, 100%);
+    grid-template-rows: repeat(5, minmax(min-content, max-content));
+    gap: 2px;
+    font-size: 10px;
 }

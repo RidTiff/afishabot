@@ -1,3 +1,7 @@
-.card__place {
+.card__place.single {
     margin-bottom: 10px;
+}
+
+.card__place.double{
+    margin: 0;
 }

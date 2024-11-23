@@ -1,4 +1,15 @@
 .card__img {
-    max-width: 100%;
     justify-self: center;
+}
+
+.card__img.single {
+    max-width: 100%;
+}
+
+.card__img.double {
+    width: 100%; /* Растянуть по ширине родителя */
+    height: auto; 
+    object-fit: cover; /* Обрезка изображения под квадрат */
+    border-radius: 5px; /* Края немного скруглены */
+    aspect-ratio: 1 / 1;
 }
