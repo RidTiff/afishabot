@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/afishabot/static/css/main.232f1f47.css",
-    "main.js": "/afishabot/static/js/main.5f94d15a.js",
+    "main.css": "/afishabot/static/css/main.4b6cb9fb.css",
+    "main.js": "/afishabot/static/js/main.76b7710b.js",
     "static/media/brod.jpg": "/afishabot/static/media/brod.be29c09046134eb3610a.jpg",
     "static/media/YsabeauOffice-Regular.woff2": "/afishabot/static/media/YsabeauOffice-Regular.ad29c952c16c85d9cb05.woff2",
     "static/media/YsabeauOffice-SemiBold.woff2": "/afishabot/static/media/YsabeauOffice-SemiBold.fede30875978fd8fb2fc.woff2",
     "static/media/YsabeauOffice-Italic.woff2": "/afishabot/static/media/YsabeauOffice-Italic.b46a5b9b36ab07a9d20a.woff2",
     "index.html": "/afishabot/index.html",
-    "main.232f1f47.css.map": "/afishabot/static/css/main.232f1f47.css.map",
-    "main.5f94d15a.js.map": "/afishabot/static/js/main.5f94d15a.js.map"
+    "main.4b6cb9fb.css.map": "/afishabot/static/css/main.4b6cb9fb.css.map",
+    "main.76b7710b.js.map": "/afishabot/static/js/main.76b7710b.js.map"
   },
   "entrypoints": [
-    "static/css/main.232f1f47.css",
-    "static/js/main.5f94d15a.js"
+    "static/css/main.4b6cb9fb.css",
+    "static/js/main.76b7710b.js"
   ]
 }
