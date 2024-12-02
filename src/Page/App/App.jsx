@@ -1,101 +1,94 @@
-import React from 'react';
-import moment from 'moment';
+import React, { useState, useEffect } from 'react';
 import './App.css';
-import Card from '../Card/Card.js'
+import Header from '../Header/Header';
+import Filters from '../Filters/Filters';
+import Modal from '../Modal/Modal';
+import CardList from '../CardList/CardList';
+import CardDetail from '../CardDetail/CardDetail';
 import brod from '../../img/brod.jpg'
 
-class App extends React.Component {
-  constructor(props) {
-    super(props)
-
-    this.handlerCardClick = this.handlerCardClick.bind(this)
-    this.toggleViewMode = this.toggleViewMode.bind(this);
-
-    this.state = {
-      toggleCard: false,
-      selectedCard: undefined,
-      viewMode: 'single',
-      dataOfEvent: [
-        {
-          id: 0,
-          image: brod, 
-          name: 'Дворянское воспитание. Обычаи и традиции',
-          expo: {name:'Остафьево', address: "Лаврушинский пер., 10"},
-          begin: "2024-05-31",
-          end: "2024-11-17",
-          date: 'Идёт сейчас, до: 24.11.2024',
-          src: '#',
-          description: "бла-бла-бла"
-        }
-      ]
+function App() {
+  const [toggleCard, setToggleCard] = useState(false);
+  const [selectedCard, setSelectedCard] = useState(undefined);
+  const [viewMode, setViewMode] = useState('single');
+  const [dataOfEvent, setDataOfEvent] = useState([
+    {
+      id: 0,
+      image: brod,
+      name: 'Дворянское воспитание. Обычаи и традиции',
+      expo: { name: 'Остафьево', address: "Лаврушинский пер., 10" },
+      begin: "2024-05-31",
+      end: "2024-11-17",
+      date: 'Идёт сейчас, до: 24.11.2024',
+      src: '#',
+      description: "бла-бла-бла",
     }
-  }
+  ]);
+  const [filters, setFilters] = useState({});
+  const [favorites, setFavorites] = useState([]);
+  const [showFavorites, setShowFavorites] = useState(false);
+  const [isFiltersOpen, setIsFiltersOpen] = useState(false);
 
-  componentDidMount() {
+  // Загрузка данных при инициализации (без фильтров)
+  useEffect(() => {
     fetch('https://gglp-fitr-afisha-api-0dc7.twc1.net/events/')
-      .then(res => res.json())
-      .then(data => {this.setState( prevState => {
-        return{
-          ...prevState,
-          dataOfEvent: data
-        }
-      })
-    })
-  }
+      .then((res) => res.json())
+      .then((data) => setDataOfEvent(data))
+      .catch((err) => console.error('Ошибка загрузки данных:', err));
+  }, []);
 
-  handlerCardClick(e) {
-      this.setState( prevState => {
-        window.scrollTo(0, 0)
-        return{
-          ...prevState,
-          toggleCard: !prevState.toggleCard,
-          selectedCard: prevState.dataOfEvent[e.target.parentElement.id]
-        }
-      })
-  }
+  // Загрузка данных с учетом фильтров
+  const fetchEvents = (filterParams) => {
+    // Заглушка: пока что фильтры не работают на сервере
+    console.log('Фильтры:', filterParams);
+  };
 
-  toggleViewMode() {
-    this.setState((prevState) => ({
-      viewMode: prevState.viewMode === 'single' ? 'double' : 'single',
-    }));
-  }
+  const toggleViewMode = () => {
+    setViewMode((prev) => (prev === 'single' ? 'double' : 'single'));
+  };
 
-  render() {
-    return (
+  const handlerCardClick = (card) => {
+    window.scrollTo(0, 0);
+    setSelectedCard(card);
+    setToggleCard(!toggleCard);
+  };
+
+  const handleFilterChange = (newFilters) => {
+    setFilters(newFilters);
+    fetchEvents(newFilters); // Вызов заглушки фильтров
+    setIsFiltersOpen(false); // Закрыть окно после применения фильтров
+  };
+
+  const handleFavoritesClick = () => {
+    setShowFavorites(!showFavorites);
+  };
+
+  return (
     <>
-    <header>
-      {!this.state.toggleCard && (
-        <button className="toggleViewButton" onClick={this.toggleViewMode}>
-            {this.state.viewMode === 'single' ? 'Две колонки' : 'Одна колонка'}
-        </button>
-      )}
-    </header>
-    <main className={'main' + (!this.state.toggleCard ? ` ${this.state.viewMode}`: ' toggleCard') }>
-      { !this.state.toggleCard ? this.state.dataOfEvent.map((item) => 
-        (
-          <Card className={`${this.state.viewMode}`} key={item.id} id={this.state.dataOfEvent.indexOf(item)} img={item.image} name={item.name} place={item.expo.name + ((this.state.viewMode === 'single') ? '. Адрес - ' + item.expo.address : '')} date={moment(item.begin).diff(moment(), 'days') > 0 ? 'Идёт с ' + item.begin + ', до ' + item.end : (moment(item.end).diff(moment(), 'days') > 0 ? 'Идёт сейчас, до ' + item.end : 'Сейчас уже закрылась :(')} src={item.src} onClick={this.handlerCardClick}/>
-        )) : 
-        <div className='container'>
-          <h3 className='name'>
-            {this.state.selectedCard.name}
-          </h3>
-          <img src={this.state.selectedCard.image} className='img'/>
-          <p className='date'>
-            {moment(this.state.selectedCard.begin).diff(moment(), 'days') > 0 ? 'Идёт с ' + this.state.selectedCard.begin + ', до ' + this.state.selectedCard.end : (moment(this.state.selectedCard.end).diff(moment(), 'days') > 0 ? 'Идёт сейчас, до ' + this.state.selectedCard.end : 'Сейчас уже закрылась :(')}
-          </p>
-          <p className='place'>
-            {this.state.selectedCard.expo.name + '. Адрес - ' + this.state.selectedCard.expo.address}
-          </p>
-          <p className='description'>
-            {this.state.selectedCard.description}
-          </p>
-          <button className='buttonBack' onClick={this.handlerCardClick}>Назад</button>
-        </div>
-      }
-    </main>
+      <Header
+        viewMode={viewMode}
+        toggleViewMode={toggleViewMode}
+        toggleCard={toggleCard}
+        onFavoritesClick={handleFavoritesClick}
+        onFiltersClick={() => setIsFiltersOpen(true)}
+      />
+      <Modal isOpen={isFiltersOpen} onClose={() => setIsFiltersOpen(false)}>
+        <Filters onFilterChange={handleFilterChange} />
+      </Modal>
+      <main className={`main ${!toggleCard ? viewMode : 'toggleCard'}`}>
+        {!toggleCard ? (
+          <CardList
+            data={showFavorites ? dataOfEvent.filter((item) => favorites.includes(item.id)) : dataOfEvent}
+            viewMode={viewMode}
+            onCardClick={handlerCardClick}
+            favorites={favorites}
+          />
+        ) : (
+          <CardDetail card={selectedCard} onBack={handlerCardClick} />
+        )}
+      </main>
     </>
-    );
-  }
+  );
 }
 
 export default App;

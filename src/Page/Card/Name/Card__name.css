@@ -1,12 +1,8 @@
 .card__name {
     font-weight: bold;
+    font-size: 16px;
 }
 
 .card__name.single {
-    font-size: 18px;
     margin-bottom: 15px;
-}
-
-.card__name.double {
-    font-size: 12px;
 }

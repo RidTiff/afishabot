@@ -1,0 +1,127 @@
+/* Общий стиль контейнера */
+.filters-popup {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  /* Заголовок */
+  .filters-popup__title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #333;
+  }
+  
+  /* Единый стиль для полей */
+  .filters-popup__filter {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .filters-popup__label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #555;
+  }
+  
+  .filters-popup__input {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #333;
+    background: #f9f9f9;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .filters-popup__input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+    outline: none;
+  }
+  
+  /* Стили для чекбоксов */
+  .filters-popup__checkbox-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  
+  .filters-popup__checkbox-label {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+  }
+  
+  .filters-popup__checkbox {
+    margin-right: 8px;
+    width: 18px;
+    height: 18px;
+    accent-color: #007bff; /* Современный акцентный цвет для чекбоксов */
+  }
+  
+  /* Стили кнопок */
+  .filters-popup__buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 20px;
+  }
+  
+  .filters-popup__button {
+    flex: 1;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .filters-popup__button:active {
+    transform: scale(0.98);
+  }
+  
+  .filters-popup__button--apply {
+    background-color: #56a7f1;
+    color: white;
+  }
+  
+  .filters-popup__button--apply:hover {
+    background-color: #4d95d8;
+  }
+  
+  .filters-popup__button--reset {
+    background: #f8f9fa;
+    color: #333;
+    border: 1px solid #ddd;
+  }
+  
+  .filters-popup__button--reset:hover {
+    background: #e9ecef;
+  }
+  
+  /* Мобильная адаптация */
+  @media (max-width: 480px) {
+    .filters-popup {
+      padding: 16px;
+    }
+  
+    .filters-popup__button {
+      font-size: 0.9rem;
+      padding: 10px;
+    }
+  }
+  

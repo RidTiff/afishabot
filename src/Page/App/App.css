@@ -11,7 +11,7 @@
 
 .main.single {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 80%;
@@ -84,6 +84,7 @@
   font-family: inherit;
   font-style: italic;
   margin-bottom: 20px;
+  color: #fff;
 }
 
 header {
@@ -106,13 +107,44 @@ header {
   font-size: 14px;
   min-height: 30px;
   font-family: inherit;
-  font-style: italic;
   cursor: pointer; /* Добавим интерактивный эффект */
   text-align: center; /* Центрируем текст */
-  margin: 10px auto; /* Отступы сверху/снизу */
+  margin: 10px 10px; /* Отступы сверху/снизу */
   display: inline-block; /* Устанавливаем кнопку как блочный элемент */
+  color: #fff;
+  fo
 }
 
 .toggle-view-button:active {
   background-color: #3c87c9; /* Тёмный оттенок при нажатии */
+}
+
+.favorites-button {
+  margin: auto 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  background-image: url(../../img/like.svg);
+  background-position: center;
+  background-color: #ffffff00;
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding: 0;
+}
+
+.filters-button {
+  margin: auto 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  background-image: url(../../img/settings.svg);
+  background-position: center;
+  background-color: #ffffff00;
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding: 0;
 }

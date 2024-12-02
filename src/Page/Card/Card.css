@@ -3,6 +3,7 @@
     border-radius: 5px;
     box-shadow: 0 0 5px #56a7f1;
     padding: 10px;
+    font-size: 14px;
 }
 
 .card.single {
@@ -10,7 +11,6 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
-    font-size: 14px;
 }
 
 .card.double {
@@ -19,5 +19,29 @@
     grid-template-columns: minmax(min-content, 100%);
     grid-template-rows: repeat(5, minmax(min-content, max-content));
     gap: 2px;
-    font-size: 10px;
 }
+
+.card-header {
+    position: relative;
+}
+
+.favorite-button {
+    border: none;
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+    background-image: url(../../img/like.svg);
+    background-position: center;
+    background-color: #ffffff00;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+  
+.favorite-button.active {
+    background-image: url(../../img/like__active.svg);
+}
+
