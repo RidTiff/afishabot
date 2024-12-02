@@ -112,7 +112,7 @@ header {
   margin: 10px 10px; /* Отступы сверху/снизу */
   display: inline-block; /* Устанавливаем кнопку как блочный элемент */
   color: #fff;
-  fo
+  font-family: inherit;
 }
 
 .toggle-view-button:active {
